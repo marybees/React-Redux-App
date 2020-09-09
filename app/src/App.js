@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import "./index.css";
+import CovidStats from "./components/CovidStats";
+import { connect } from "react-redux";
+import { fetchStats } from "./store/actions";
 
-function App() {
+function App({ fetchStats, loadingStats, errorMessage }) {
+  useEffect(() => {
+    fetchStats();
+  }, [fetchStats]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to Covid-19 Stats</h1>
+      <h2>Facts all about the cats!</h2>
+      {!loadingStats ? <CovidStats /> : <div>... Fetching Covid-19 stats</div>}
+      {errorMessage !== "" ? <div>{errorMessage}</div> : null}
     </div>
   );
 }
-
-export default App;
+function mapStateToProps(state) {
+  return {
+    loadingStats: state.loadingStats,
+    errorMessage: state.errorMessage
+  };
+}
+export default connect(mapStateToProps, { fetchStats })(App);
