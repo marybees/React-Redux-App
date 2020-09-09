@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./index.css";
 import CovidStats from "./components/CovidStats";
 import { connect } from "react-redux";
-import { fetchStats } from "./store/actions";
+import { fetchStats } from "./actions";
 
 function App({ fetchStats, loadingStats, errorMessage }) {
   useEffect(() => {
@@ -10,8 +10,8 @@ function App({ fetchStats, loadingStats, errorMessage }) {
   }, [fetchStats]);
   return (
     <div className="App">
-      <h1>Welcome to Covid-19 Stats</h1>
-      <h2>Facts all about the cats!</h2>
+      <h1>Covid-19 Stats</h1>
+      <h2>Lookup Stats by Country</h2>
       {!loadingStats ? <CovidStats /> : <div>... Fetching Covid-19 stats</div>}
       {errorMessage !== "" ? <div>{errorMessage}</div> : null}
     </div>
