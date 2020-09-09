@@ -5,10 +5,11 @@ import Stat from "./Stat";
 function CovidStats(props) {
     return (
         <>
-            <h3>Covid Stats</h3>
-            {props.stats.map((stat) => {
-                return <Stat key={stat._id} stat={stat} />;
-            })}
+            <h3>Global Data</h3>
+            {/* <div>{props.stats[0].Country}</div> */}
+            <div>{props.stats.map((stat) => {
+                return <Stat key={props.stats.Country} stat={stat} />;
+            })}</div>
         </>
     );
 }

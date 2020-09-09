@@ -7,9 +7,10 @@ export const fetchStats = () => {
     return (dispatch) => {
         dispatch({ type: FETCH_STATS });
         axios
-            .get("https://cat-fact.herokuapp.com/facts")
+            .get("https://api.covid19api.com/summary")
             .then((response) => {
-                dispatch({ type: FETCH_STATS_SUCCESS, payload: response.data.all });
+                console.log(response)
+                dispatch({ type: FETCH_STATS_SUCCESS, payload: response.data.Countries });
             })
             .catch((error) => {
                 dispatch({
