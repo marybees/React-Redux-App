@@ -1,21 +1,35 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import logger from "redux-logger";
-import thunk from "redux-thunk";
-import reducer from "./store/reducers";
+import {
+    FETCH_STATS,
+    FETCH_STATS_ERROR,
+    FETCH_STATS_SUCCESS
+} from "../actions";
 
-import App from "./App";
+const initialState = {
+    stats: [],
+    loadingStats: true,
+    errorMessage: ""
+};
 
-const store = createStore(reducer, applyMiddleware(thunk, logger));
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <App />
-        </Provider>
-    </React.StrictMode>,
-    rootElement
-);
+export default (state = initialState, action) => {
+    switch (action.type) {
+        case FETCH_STATS:
+            return {
+                ...state,
+                loadingStats: true
+            };
+        case FETCH_STATS_ERROR:
+            return {
+                ...state,
+                loadingStats: false,
+                errorMessage: action.payload.message
+            };
+        case FETCH_STATS_SUCCESS:
+            return {
+                ...state,
+                stats: action.payload,
+                loadingStats: false
+            };
+        default:
+            return state;
+    }
+};
