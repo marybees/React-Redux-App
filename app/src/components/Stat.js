@@ -3,13 +3,13 @@ import { Table } from 'reactstrap';
 
 function Stat({ stat }) {
     return (
-        <Table dark>
+        <Table responsive dark>
             <thead>
                 <tr>
                     <th>Country</th>
-                    <th>Total Confirmed</th>
-                    <th>Total Deaths</th>
-                    <th>Total Recovered</th>
+                    <th>Confirmed</th>
+                    <th>Deaths</th>
+                    <th>Recovered</th>
                 </tr>
             </thead>
             <tbody>
