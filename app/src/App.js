@@ -10,7 +10,7 @@ function App({ fetchStats, loadingStats, errorMessage }) {
     fetchStats();
   }, [fetchStats]);
   return (
-    <div className="header">
+    <div className="header" style={{ backgroundImage: "url(" + "https://images.unsplash.com/photo-1584118624012-df056829fbd0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80" + ")" }}>
       <h1>COVID-19 Stats</h1>
       {!loadingStats ? <CovidStats /> : <Spinner color="primary" />}
       {errorMessage !== "" ? <div>{errorMessage}</div> : null}
