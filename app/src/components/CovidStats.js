@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../index.css"
 import { Form, FormGroup, Input } from 'reactstrap';
 import { connect } from "react-redux";
 import Stat from "./Stat";
@@ -16,7 +17,7 @@ function CovidStats(props) {
             <div className="search">
                 <div>
                     <Form>
-                        <FormGroup>
+                        <FormGroup style={{ display: "flex", justifyContent: "center", margin: "5%" }}>
                             <Input style={{ width: "30%", textAlign: "center" }} type='text' placeholder='Search for a Country' onChange={e => setSearch(e.target.value)} />
                         </FormGroup>
                     </Form>
