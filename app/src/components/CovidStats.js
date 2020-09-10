@@ -15,7 +15,7 @@ function CovidStats(props) {
         <>
             <Form>
                 <FormGroup>
-                    <Input type='text' placeholder='Search for a Country' onChange={e => setSearch(e.target.value)} />
+                    <Input style={{ width: "30%", textAlign: "center" }} type='text' placeholder='Search for a Country' onChange={e => setSearch(e.target.value)} />
                 </FormGroup>
             </Form>
             <div>{filteredCountries.map((stat) => {
