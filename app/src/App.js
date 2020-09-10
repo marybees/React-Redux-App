@@ -12,7 +12,7 @@ function App({ fetchStats, loadingStats, errorMessage }) {
   return (
     <div className="header">
       <h1>COVID-19 Stats</h1>
-      <h4>Lookup Stats by Country</h4>
+      <h5>Lookup Stats by Country</h5>
       {!loadingStats ? <CovidStats /> : <Spinner color="primary" />}
       {errorMessage !== "" ? <div>{errorMessage}</div> : null}
     </div>

@@ -12,16 +12,20 @@ function CovidStats(props) {
     })
 
     return (
-        <>
-            <Form>
-                <FormGroup>
-                    <Input style={{ width: "30%", textAlign: "center" }} type='text' placeholder='Search for a Country' onChange={e => setSearch(e.target.value)} />
-                </FormGroup>
-            </Form>
+        <div className="table">
+            <div className="search">
+                <div>
+                    <Form>
+                        <FormGroup>
+                            <Input style={{ width: "30%", textAlign: "center" }} type='text' placeholder='Search for a Country' onChange={e => setSearch(e.target.value)} />
+                        </FormGroup>
+                    </Form>
+                </div>
+            </div>
             <div>{filteredCountries.map((stat) => {
                 return <Stat key={stat.Country} stat={stat} />;
             })}</div>
-        </>
+        </div>
     );
 
 }
