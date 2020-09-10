@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { applyMiddleware, createStore } from "redux";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import reducer from "./reducers";

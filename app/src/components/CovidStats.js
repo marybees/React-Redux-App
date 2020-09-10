@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Form, FormGroup, Input } from 'reactstrap';
 import { connect } from "react-redux";
 import Stat from "./Stat";
 
@@ -12,10 +13,11 @@ function CovidStats(props) {
 
     return (
         <>
-            <h3>Global Data</h3>
-            <forms>
-                <input type='text' placeholder='Search for a Country' onChange={e => setSearch(e.target.value)} />
-            </forms>
+            <Form>
+                <FormGroup>
+                    <Input type='text' placeholder='Search for a Country' onChange={e => setSearch(e.target.value)} />
+                </FormGroup>
+            </Form>
             <div>{filteredCountries.map((stat) => {
                 return <Stat key={stat.Country} stat={stat} />;
             })}</div>

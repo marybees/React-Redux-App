@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Spinner } from 'reactstrap';
 import "./index.css";
 import CovidStats from "./components/CovidStats";
 import { connect } from "react-redux";
@@ -10,13 +11,14 @@ function App({ fetchStats, loadingStats, errorMessage }) {
   }, [fetchStats]);
   return (
     <div className="App">
-      <h1>Covid-19 Stats</h1>
-      <h2>Lookup Stats by Country</h2>
-      {!loadingStats ? <CovidStats /> : <div>... Fetching Covid-19 stats</div>}
+      <h1>COVID-19 Stats</h1>
+      <h3>Lookup Stats by Country</h3>
+      {!loadingStats ? <CovidStats /> : <Spinner color="primary" />}
       {errorMessage !== "" ? <div>{errorMessage}</div> : null}
     </div>
   );
 }
+
 function mapStateToProps(state) {
   return {
     loadingStats: state.loadingStats,
